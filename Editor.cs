@@ -14,6 +14,7 @@ namespace HTMLEditor
             Console.WriteLine("MODO EDITOR");
             Console.WriteLine();
             Start();
+            Console.ReadKey();
         }
 
         public static void Start()
@@ -30,8 +31,10 @@ namespace HTMLEditor
             while(Console.ReadKey().Key != ConsoleKey.Escape);
 
             Console.WriteLine("*************");
-            Console.WriteLine("  Deseja salvar o arquivo? ");
-            //Console.ReadKey();
+            Console.WriteLine("Deseja salvar o arquivo? ");
+
+            Viewer.Show(file.ToString()); 
+            
         }
     }
 }
