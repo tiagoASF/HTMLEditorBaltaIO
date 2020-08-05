@@ -4,13 +4,18 @@ namespace HTMLEditor
 {
     public static class Menu
     {
-        public static void Show(int columns, int lines)
+        public static void Show()
         {
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.Black;
             
-            DrawScreen(columns, lines);
+            DrawScreen(40, 20);
+            WriteOptions();
+
+            var option = short.Parse(Console.ReadLine());
+
+            HandleMenuOption(option);
         }
         public static void DrawScreen(int columns, int lines)
         {
@@ -44,6 +49,37 @@ namespace HTMLEditor
             }
         }
 
+        public static void WriteOptions()
+        {
+            Console.SetCursorPosition(3,2);
+            Console.WriteLine("Editor HTML");
+            Console.SetCursorPosition(3,4);
+            Console.WriteLine("Selecione uma das opções abaixo:");
+            Console.SetCursorPosition(3,5);
+            Console.WriteLine("1 - Novo arquivo");
+            Console.SetCursorPosition(3,6);
+            Console.WriteLine("2 - Abrir");
+            Console.SetCursorPosition(3,8);
+            Console.WriteLine("0 - Sair");
+            Console.SetCursorPosition(3,10);
+            Console.Write("Opção: ");
+        }
 
+        public static void HandleMenuOption(short option)
+        {
+            switch (option)
+            {
+                case 1: Console.WriteLine("Editor"); break;
+                case 2: Console.WriteLine("View"); break;
+                case 0:
+                {
+                    Console.Clear();
+                    Environment.Exit(0);
+                    break;
+                }
+                default: Show(); break;
+
+            }
+        }
     }
 }
