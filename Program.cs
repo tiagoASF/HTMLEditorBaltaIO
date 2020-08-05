@@ -6,7 +6,7 @@ namespace HTMLEditor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Menu.Show(30, 10);
         }
     }
 }
